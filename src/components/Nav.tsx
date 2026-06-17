@@ -19,13 +19,14 @@ export default function Nav() {
       {/* LOGO ROW */}
       <div style={{ background: '#FFFFFF', borderBottom: '1px solid #EDE3D5' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 32px', height: 72, display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center' }}>
-          {/* Search */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer' }} className="koa-link">
+          {/* Search — desktop only */}
+          <div className="hidden md:flex" style={{ alignItems: 'center', gap: 8, cursor: 'pointer' }}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E2420" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
             </svg>
             <span style={{ fontFamily: 'var(--font-sans)', fontSize: 13, letterSpacing: '0.14em', color: '#2E2420', textTransform: 'uppercase' }}>Search</span>
           </div>
+          <div className="md:hidden" />
 
           {/* Logo */}
           <Link href="/">
@@ -34,13 +35,13 @@ export default function Nav() {
 
           {/* Icons */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 22, justifyContent: 'flex-end' }}>
-            <svg className="koa-link" style={{ cursor: 'pointer', display: 'block' }} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E2420" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="koa-link hidden md:block" style={{ cursor: 'pointer' }} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E2420" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
             </svg>
-            <svg className="koa-link" style={{ cursor: 'pointer', display: 'block' }} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E2420" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="koa-link hidden md:block" style={{ cursor: 'pointer' }} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E2420" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
             </svg>
-            <svg className="koa-link" style={{ cursor: 'pointer', display: 'block' }} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E2420" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="koa-link hidden md:block" style={{ cursor: 'pointer' }} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E2420" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
             </svg>
             {/* Mobile hamburger */}

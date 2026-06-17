@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { supabase } from '@/lib/supabase';
 
 const FAQS = [
   { q: 'How does pre-order work?', a: 'Reserve your item online. We confirm availability and send a secure payment link within 48 hours. Estimated lead time: 8–12 weeks.' },
@@ -28,21 +29,21 @@ export default function Contact() {
                 <p style={{ fontFamily: 'var(--font-sans)', fontSize: 17, fontWeight: 300, color: '#8C7A65', margin: 0 }}>We&apos;ll get back to you within one business day.</p>
               </div>
             ) : (
-              <form onSubmit={e => { e.preventDefault(); setDone(true); window.scrollTo(0, 0); }}
+              <form onSubmit={async e => { e.preventDefault(); const f = e.target as HTMLFormElement; const name = (f.elements.namedItem('name') as HTMLInputElement).value; const email = (f.elements.namedItem('email') as HTMLInputElement).value; const message = (f.elements.namedItem('message') as HTMLTextAreaElement).value; await supabase.from('leads').insert({ name, email, message }); setDone(true); window.scrollTo(0, 0); }}
                 style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                 {[
-                  { label: 'Name', type: 'text', placeholder: 'Your name' },
-                  { label: 'Email', type: 'email', placeholder: 'your@email.com' },
-                ].map(({ label, type, placeholder }) => (
+                  { label: 'Name', type: 'text', placeholder: 'Your name', name: 'name' },
+                  { label: 'Email', type: 'email', placeholder: 'your@email.com', name: 'email' },
+                ].map(({ label, type, placeholder, name }) => (
                   <div key={label}>
                     <label style={{ fontFamily: 'var(--font-sans)', fontSize: 13, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#8C7A65', display: 'block', marginBottom: 8 }}>{label}</label>
-                    <input type={type} required placeholder={placeholder}
+                    <input type={type} name={name} required placeholder={placeholder}
                       style={{ width: '100%', background: '#FFFFFF', border: '0.5px solid #D9CAB3', borderRadius: 4, padding: '12px 14px', fontFamily: 'var(--font-sans)', fontSize: 17, color: '#2E2420', outline: 'none' }} />
                   </div>
                 ))}
                 <div>
                   <label style={{ fontFamily: 'var(--font-sans)', fontSize: 13, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#8C7A65', display: 'block', marginBottom: 8 }}>Message</label>
-                  <textarea rows={5} required placeholder="Tell us what you're looking for..."
+                  <textarea name="message" rows={5} required placeholder="Tell us what you're looking for..."
                     style={{ width: '100%', background: '#FFFFFF', border: '0.5px solid #D9CAB3', borderRadius: 4, padding: '12px 14px', fontFamily: 'var(--font-sans)', fontSize: 17, color: '#2E2420', outline: 'none', resize: 'vertical' }} />
                 </div>
                 <button type="submit" className="koa-btn"

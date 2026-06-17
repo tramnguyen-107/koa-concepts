@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { use } from 'react';
+import { supabase } from '@/lib/supabase';
 
 const PHOTOS: Record<string, string[]> = {
   'seville-sofa-set': ['1613685302957-3a6fc45346ef', '1600210492090-a159ffa3aeaf', '1715090576114-c07384af2069'],
@@ -192,13 +193,13 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
                       Reserve now with no charge. We confirm availability and send a secure payment link within 48 hours. Production begins once confirmed — estimated lead time 8–12 weeks.
                     </p>
                   </div>
-                  <form onSubmit={e => { e.preventDefault(); setReserveDone(true); }}
+                  <form onSubmit={async e => { e.preventDefault(); const f = e.target as HTMLFormElement; const customer_name = (f.elements.namedItem('name') as HTMLInputElement).value; const customer_email = (f.elements.namedItem('email') as HTMLInputElement).value; const zip_code = (f.elements.namedItem('zip') as HTMLInputElement).value; await supabase.from('orders').insert({ product_id: null, product_name: prod.name, customer_name, customer_email, zip_code, finish: FINISHES[finish].label }); setReserveDone(true); }}
                     style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-                    <input type="text" required placeholder="Full name"
+                    <input type="text" name="name" required placeholder="Full name"
                       style={{ background: '#FFFFFF', border: '0.5px solid #D9CAB3', borderRadius: 4, padding: '13px 14px', fontFamily: 'var(--font-sans)', fontSize: 17, color: '#2E2420', outline: 'none' }} />
-                    <input type="email" required placeholder="Email address"
+                    <input type="email" name="email" required placeholder="Email address"
                       style={{ background: '#FFFFFF', border: '0.5px solid #D9CAB3', borderRadius: 4, padding: '13px 14px', fontFamily: 'var(--font-sans)', fontSize: 17, color: '#2E2420', outline: 'none' }} />
-                    <input type="text" required placeholder="Shipping ZIP code"
+                    <input type="text" name="zip" required placeholder="Shipping ZIP code"
                       style={{ background: '#FFFFFF', border: '0.5px solid #D9CAB3', borderRadius: 4, padding: '13px 14px', fontFamily: 'var(--font-sans)', fontSize: 17, color: '#2E2420', outline: 'none' }} />
                     <button type="submit" className="koa-btn"
                       style={{ background: '#B8906F', color: '#FFFFFF', fontFamily: 'var(--font-sans)', fontSize: 16, fontWeight: 500, letterSpacing: '0.12em', textTransform: 'uppercase', padding: '15px 24px', borderRadius: 4, border: 'none', cursor: 'pointer', transition: 'opacity .2s' }}>

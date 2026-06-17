@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import { supabase } from '@/lib/supabase';
 
 const PHOTOS: Record<string, string[]> = {
   'seville-sofa-set': ['1613685302957-3a6fc45346ef', '1600210492090-a159ffa3aeaf', '1715090576114-c07384af2069'],
@@ -159,9 +160,9 @@ export default function Home() {
               You&apos;re on the list. Welcome aboard.
             </p>
           ) : (
-            <form onSubmit={e => { e.preventDefault(); setEmailDone(true); }}
+            <form onSubmit={async e => { e.preventDefault(); const form = e.target as HTMLFormElement; const email = (form.elements.namedItem('email') as HTMLInputElement).value; await supabase.from('newsletter_subscribers').upsert({ email }, { onConflict: 'email' }); setEmailDone(true); }}
               style={{ display: 'flex', gap: 10, flexWrap: 'wrap', justifyContent: 'center' }}>
-              <input type="email" required placeholder="Your email address"
+              <input type="email" name="email" required placeholder="Your email address"
                 style={{ flex: 1, minWidth: 220, background: 'transparent', border: '1px solid rgba(255,255,255,0.55)', borderRadius: 4, padding: '13px 18px', fontFamily: 'var(--font-sans)', fontSize: 17, color: '#FFFFFF', outline: 'none' }} />
               <button type="submit" className="koa-btn"
                 style={{ background: '#FFFFFF', color: '#2E2420', fontFamily: 'var(--font-sans)', fontSize: 14, fontWeight: 500, letterSpacing: '0.12em', textTransform: 'uppercase', padding: '13px 28px', borderRadius: 4, border: 'none', cursor: 'pointer', whiteSpace: 'nowrap', transition: 'opacity .2s' }}>

@@ -22,6 +22,20 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: 'Koa Concepts — Furniture for the Long Exhale',
   description: 'Handcrafted furniture designed to slow you down. Pre-order now — built when you\'re ready.',
+  openGraph: {
+    title: 'Koa Concepts — Furniture for the Long Exhale',
+    description: 'Handcrafted furniture designed to slow you down. Pre-order now — built when you\'re ready.',
+    url: 'https://www.koaconcepts.com',
+    siteName: 'Koa Concepts',
+    images: [{ url: 'https://www.koaconcepts.com/og-image.jpg', width: 1200, height: 630 }],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Koa Concepts — Furniture for the Long Exhale',
+    description: 'Handcrafted furniture designed to slow you down. Pre-order now — built when you\'re ready.',
+    images: ['https://www.koaconcepts.com/og-image.jpg'],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

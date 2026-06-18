@@ -42,11 +42,16 @@ export default function Footer() {
     <footer style={{ background: '#2E2420' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '64px 24px' }}>
 
+        {/* Big logo */}
+        <div style={{ borderBottom: '0.5px solid #4A3E36', marginBottom: 48, paddingBottom: 48, overflow: 'hidden' }}>
+          <Image src="/koa-logo-light.png" alt="Koa Concepts" width={1200} height={120} style={{ width: '100%', height: 'auto', display: 'block', opacity: 0.15 }} />
+        </div>
+
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 40, marginBottom: 48 }}>
 
           {/* Brand */}
           <div style={{ gridColumn: 'span 2' }}>
-            <Image src="/koa-logo-light.png" alt="Koa Concepts" width={240} height={44} style={{ height: 28, width: 'auto', display: 'block', marginBottom: 16 }} />
+            <Image src="/koa-logo-light.png" alt="Koa Concepts" width={240} height={44} style={{ height: 24, width: 'auto', display: 'block', marginBottom: 16 }} />
             <p style={{ fontFamily: 'DM Serif Display, serif', fontSize: 15, fontStyle: 'italic', color: '#8A7A66', lineHeight: 1.6, maxWidth: 240, margin: '0 0 24px' }}>
               "Furniture for the long exhale."
             </p>

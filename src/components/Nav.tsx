@@ -18,12 +18,12 @@ export default function Nav() {
 
       {/* MARQUEE TICKER */}
       <div style={{ background: '#2E2420', padding: '8px 0', overflow: 'hidden', whiteSpace: 'nowrap' }}>
-        <div className="koa-marquee" style={{ display: 'inline-flex', gap: 0 }}>
-          {[...Array(6)].map((_, i) => (
-            <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: 0 }}>
-              {['FREE SHIPPING ON ORDERS $500+', 'PRE-ORDER NOW — LIMITED STOCK'].map((text, j) => (
-                <span key={j} style={{ fontFamily: 'var(--font-sans)', fontSize: 11, letterSpacing: '0.18em', color: '#EDE3D5', textTransform: 'uppercase', paddingRight: 48 }}>
-                  {text} <span style={{ color: '#B8906F', paddingRight: 48 }}>·</span>
+        <div className="koa-marquee" style={{ display: 'inline-flex' }}>
+          {[0, 1].map(i => (
+            <span key={i} style={{ display: 'inline-flex', alignItems: 'center', flexShrink: 0 }}>
+              {['FREE SHIPPING ON ORDERS $500+', 'PRE-ORDER NOW — LIMITED STOCK', 'FREE SHIPPING ON ORDERS $500+', 'PRE-ORDER NOW — LIMITED STOCK', 'FREE SHIPPING ON ORDERS $500+', 'PRE-ORDER NOW — LIMITED STOCK'].map((text, j) => (
+                <span key={j} style={{ fontFamily: 'var(--font-sans)', fontSize: 11, letterSpacing: '0.18em', color: '#EDE3D5', textTransform: 'uppercase', padding: '0 32px' }}>
+                  {text} <span style={{ color: '#B8906F', marginLeft: 32 }}>·</span>
                 </span>
               ))}
             </span>
@@ -45,7 +45,7 @@ export default function Nav() {
 
           {/* Logo */}
           <Link href="/">
-            <Image src="/koa-logo.png" alt="Koa Concepts" width={120} height={24} style={{ height: 24, width: 'auto', display: 'block' }} />
+            <Image src="/koa-logo.png" alt="Koa Concepts" width={240} height={48} style={{ height: 24, width: 'auto', display: 'block' }} />
           </Link>
 
           {/* Icons */}

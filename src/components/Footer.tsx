@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-const linkStyle = { fontFamily: 'DM Sans, sans-serif', fontSize: 15, color: '#EFE7D9', textDecoration: 'none' } as const;
-const mutedStyle = { fontFamily: 'DM Sans, sans-serif', fontSize: 12, color: '#8A7A66', letterSpacing: '0.18em', textTransform: 'uppercase' as const, margin: '0 0 14px' };
+const linkStyle = { fontFamily: 'DM Sans, sans-serif', fontSize: 16.5, color: '#EFE7D9', textDecoration: 'none' } as const;
+const mutedStyle = { fontFamily: 'DM Sans, sans-serif', fontSize: 13, color: '#8A7A66', letterSpacing: '0.18em', textTransform: 'uppercase' as const, margin: '0 0 14px' };
 
 const shopLinks = ['All Products', 'Seating', 'Tables', 'Sets'];
 const infoLinks = [['Our Story', '/story'], ['Shipping & Delivery', '/contact'], ['FAQ', '/contact'], ['Contact', '/contact']];
@@ -16,7 +16,7 @@ export default function Footer() {
 
           {/* Brand */}
           <div style={{ gridColumn: 'span 2' }}>
-            <Image src="/koa-logo-light.png" alt="Koa Concepts" width={120} height={22} style={{ height: 22, width: 'auto', display: 'block', marginBottom: 16 }} />
+            <Image src="/koa-logo-light.png" alt="Koa Concepts" width={240} height={44} style={{ height: 28, width: 'auto', display: 'block', marginBottom: 16 }} />
             <p style={{ fontFamily: 'DM Serif Display, serif', fontSize: 15, fontStyle: 'italic', color: '#8A7A66', lineHeight: 1.6, maxWidth: 240, margin: '0 0 24px' }}>
               "Furniture for the long exhale."
             </p>

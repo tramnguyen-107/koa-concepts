@@ -160,7 +160,7 @@ export default function Home() {
               You&apos;re on the list. Welcome aboard.
             </p>
           ) : (
-            <form onSubmit={async e => { e.preventDefault(); const form = e.target as HTMLFormElement; const email = (form.elements.namedItem('email') as HTMLInputElement).value; await supabase.from('newsletter_subscribers').upsert({ email }, { onConflict: 'email' }); setEmailDone(true); }}
+            <form onSubmit={async e => { e.preventDefault(); const form = e.target as HTMLFormElement; const email = (form.elements.namedItem('email') as HTMLInputElement).value; const { error } = await supabase.from('newsletter_subscribers').upsert({ email }, { onConflict: 'email' }); if (error) { console.error('Newsletter error:', error); alert('Error: ' + error.message); return; } setEmailDone(true); }}
               style={{ display: 'flex', gap: 10, flexWrap: 'wrap', justifyContent: 'center' }}>
               <input type="email" name="email" required placeholder="Your email address"
                 style={{ flex: 1, minWidth: 220, background: 'transparent', border: '1px solid rgba(255,255,255,0.55)', borderRadius: 4, padding: '13px 18px', fontFamily: 'var(--font-sans)', fontSize: 17, color: '#FFFFFF', outline: 'none' }} />

@@ -20,8 +20,8 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Koa Concepts — Outdoor Furniture',
-  description: 'Outdoor furniture. Flat-pack. Honestly priced. Crafted in Vietnam, designed for your life.',
+  title: 'Koa Concepts — Furniture for the Long Exhale',
+  description: 'Handcrafted outdoor furniture designed to slow you down. Pre-order now — built when you\'re ready.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -19,7 +19,7 @@ export default function Nav() {
       {/* MARQUEE TICKER */}
       <div style={{ background: '#2E2420', padding: '8px 0', overflow: 'hidden', whiteSpace: 'nowrap' }}>
         <div className="koa-marquee" style={{ display: 'inline-flex', gap: 0 }}>
-          {[...Array(2)].map((_, i) => (
+          {[...Array(6)].map((_, i) => (
             <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: 0 }}>
               {['FREE SHIPPING ON ORDERS $500+', 'PRE-ORDER NOW — LIMITED STOCK'].map((text, j) => (
                 <span key={j} style={{ fontFamily: 'var(--font-sans)', fontSize: 11, letterSpacing: '0.18em', color: '#EDE3D5', textTransform: 'uppercase', paddingRight: 48 }}>

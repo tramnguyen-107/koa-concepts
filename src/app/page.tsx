@@ -27,8 +27,6 @@ const reviews = [
   { quote: 'The quality is way above what I expected at this price. My patio feels like a whole new space.', name: 'James K.', location: 'Kailua, HI' },
   { quote: 'Ordered the bistro set. It arrived flat, assembled easily, and looks stunning on my balcony.', name: 'Priya N.', location: 'San Diego, CA' },
   { quote: 'The Seville sofa set is exactly what our lanai needed. Solid, beautiful, and ships fast.', name: 'Derek T.', location: 'Maui, HI' },
-  { quote: 'I was skeptical about ordering furniture online but these exceeded every expectation. Worth every penny.', name: 'Monica L.', location: 'Austin, TX' },
-  { quote: 'Love how minimal and modern everything looks. Finally something that fits my aesthetic without breaking the bank.', name: 'Anh P.', location: 'Los Angeles, CA' },
 ];
 
 export default function Home() {

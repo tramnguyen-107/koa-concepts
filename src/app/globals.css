@@ -42,3 +42,7 @@ details > summary::-webkit-details-marker { display: none; }
 .koa-btn:hover { opacity: 0.9; }
 .koa-card { transition: transform 0.35s cubic-bezier(.2,.7,.2,1); }
 .koa-card:hover { transform: translateY(-4px); }
+
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.koa-marquee { animation: marquee 28s linear infinite; }
+.koa-marquee:hover { animation-play-state: paused; }

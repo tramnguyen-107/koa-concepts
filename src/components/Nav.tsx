@@ -16,6 +16,21 @@ export default function Nav() {
         </p>
       </div>
 
+      {/* MARQUEE TICKER */}
+      <div style={{ background: '#2E2420', padding: '8px 0', overflow: 'hidden', whiteSpace: 'nowrap' }}>
+        <div className="koa-marquee" style={{ display: 'inline-flex', gap: 0 }}>
+          {[...Array(2)].map((_, i) => (
+            <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: 0 }}>
+              {['FREE SHIPPING ON ORDERS $500+', 'PRE-ORDER NOW — LIMITED STOCK'].map((text, j) => (
+                <span key={j} style={{ fontFamily: 'var(--font-sans)', fontSize: 11, letterSpacing: '0.18em', color: '#EDE3D5', textTransform: 'uppercase', paddingRight: 48 }}>
+                  {text} <span style={{ color: '#B8906F', paddingRight: 48 }}>·</span>
+                </span>
+              ))}
+            </span>
+          ))}
+        </div>
+      </div>
+
       {/* LOGO ROW */}
       <div style={{ background: '#FFFFFF', borderBottom: '1px solid #EDE3D5' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 32px', height: 72, display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center' }}>
@@ -35,9 +50,11 @@ export default function Nav() {
 
           {/* Icons */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 22, justifyContent: 'flex-end' }}>
-            <svg className="koa-link hidden md:block" style={{ cursor: 'pointer' }} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E2420" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
-            </svg>
+            <a href="https://shopify.com/74914037956/account" target="_blank" rel="noopener noreferrer" className="koa-link hidden md:flex" style={{ alignItems: 'center', color: 'inherit' }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E2420" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+              </svg>
+            </a>
             <svg className="koa-link hidden md:block" style={{ cursor: 'pointer' }} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E2420" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
             </svg>

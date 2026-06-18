@@ -55,6 +55,27 @@ export async function getProductByHandle(handle: string): Promise<ShopifyProduct
   return data.productByHandle;
 }
 
+export async function subscribeNewsletter(email: string): Promise<{ success: boolean; error?: string }> {
+  try {
+    const data = await shopifyFetch(`
+      mutation($email: String!) {
+        customerCreate(input: { email: $email, acceptsMarketing: true }) {
+          customer { id email }
+          customerUserErrors { message }
+        }
+      }
+    `, { email });
+    const errors = data.customerCreate.customerUserErrors;
+    if (errors.length > 0) {
+      if (errors[0].message.includes('already taken')) return { success: true };
+      return { success: false, error: errors[0].message };
+    }
+    return { success: true };
+  } catch {
+    return { success: false, error: 'Network error' };
+  }
+}
+
 export async function createCheckout(variantId: string, quantity = 1) {
   const data = await shopifyFetch(`
     mutation($variantId: ID!, $quantity: Int!) {

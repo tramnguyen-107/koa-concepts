@@ -21,7 +21,7 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: 'Koa Concepts — Furniture for the Long Exhale',
-  description: 'Handcrafted outdoor furniture designed to slow you down. Pre-order now — built when you\'re ready.',
+  description: 'Handcrafted furniture designed to slow you down. Pre-order now — built when you\'re ready.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

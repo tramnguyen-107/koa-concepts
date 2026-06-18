@@ -1,10 +1,17 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
     <header style={{ position: 'sticky', top: 0, zIndex: 50 }}>
@@ -45,7 +52,7 @@ export default function Nav() {
 
           {/* Logo */}
           <Link href="/">
-            <Image src="/koa-logo.png" alt="Koa Concepts" width={240} height={48} style={{ height: 24, width: 'auto', display: 'block' }} />
+            <Image src="/koa-logo.png" alt="Koa Concepts" width={240} height={48} style={{ height: scrolled ? 20 : 28, width: 'auto', display: 'block', transition: 'height 0.3s ease' }} />
           </Link>
 
           {/* Icons */}
